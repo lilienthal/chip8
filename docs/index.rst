@@ -11,7 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   user-stories.rst
+   user-stories-open.rst
+   user-stories-done.rst
    architecture.rst
    thoughts.rst
 
