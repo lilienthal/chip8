@@ -19,8 +19,6 @@ Architecture
 
         Load the 
 
-    .. clear:: 
-
 
 
 .. class:: C8GraphicsUnit
@@ -34,7 +32,7 @@ Architecture
 
 .. class:: C8Keyboard
 
-    .. method:: 
+    .. method:: (to be completed)
 
 
 * Clock

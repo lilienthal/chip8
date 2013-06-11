@@ -5,9 +5,6 @@ User Stories - Open
 
 Points per week: 10
 
-OPEN
-====
-
 
 Story VIII: CPU supports subroutines
 ------------------------------------
@@ -44,7 +41,7 @@ to retrieve opcode and parameter descriptions from a binary ROM.
 ------------------
 
 Story XIII: Keyboard GUI
------------------------
+------------------------
 
 **Points:** 6
 

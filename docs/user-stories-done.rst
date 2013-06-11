@@ -1,9 +1,6 @@
 User Stories - Done
 ~~~~~~~~~~~~~~~~~~~
 
-DONE
-====
-
 Story I : Register access
 -------------------------
 
@@ -96,6 +93,7 @@ Demo
     [cpu := C8CPU new.
     cpu ldK: 0.
     Transcript show: (cpu register: 0) bits; cr.] fork.
+
 ------------------
 
 Story V : RAM access
@@ -196,7 +194,7 @@ Example:
 ------------------
 
 Story X: Opcode Dispatcher
--------------------------
+--------------------------
 
 **Points:** 8.5
 
@@ -210,5 +208,3 @@ Demo
 .. code-block:: smalltalk
 
     [ self halt. C8CPU new dispatcher dispatch: 16rA111 ] value.
-
-------------------
