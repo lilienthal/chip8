@@ -16,6 +16,7 @@ Contents:
    architecture.rst
    thoughts.rst
    consultation.rst
+   rom_editor.rst
 
 
 Indices and tables
