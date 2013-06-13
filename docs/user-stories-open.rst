@@ -26,6 +26,18 @@ Story XI: MAZE+
 **Description:** Execute the first ROM: MAZE. Prepend opcode "waiting for key
 press" to demo user input.
 
+Demo
+....
+
+.. code-block:: smalltalk
+
+	cpu := C8CPU new.
+	cpu ram loadROM: '/home/falco/c8games/MAZE2'.
+	cpu display: C8Display new.
+	cpu start.
+
+	cpu stop.
+
 ------------------
 
 Story XII: Symbolic Disassbembler
@@ -37,6 +49,15 @@ Story XII: Symbolic Disassbembler
 
 **Description:** Enhance the current disassembler prototype and enable the user
 to retrieve opcode and parameter descriptions from a binary ROM.
+
+Demo
+....
+
+.. code-block:: smalltalk
+	
+	Transcript clear.
+	d := C8SymbolicDisassembler new.
+	d runOn: '/home/falco/c8games/MAZE'
 
 ------------------
 
