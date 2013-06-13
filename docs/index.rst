@@ -15,6 +15,7 @@ Contents:
    user-stories-done.rst
    architecture.rst
    thoughts.rst
+   consultation.rst
 
 
 Indices and tables
