@@ -1,5 +1,8 @@
-Anmerkungen Vortrag:
-====================
+Konsultation
+~~~~~~~~~~~~
+
+Anmerkungen Vortrag
+===================
 
 Gruppennummer auf erste Folie
 
@@ -40,7 +43,7 @@ Prozess:
 
 Quellen ok
 
-Sonstiges:
-==========
+Sonstiges
+=========
 Maze als Integrationstest (automatisch ablaufen lassen und Displayinhalt überprüfen)
 Keyboard Rückgabewert vs Wait (evtl. in Referenzimplementierung nachsehen)
