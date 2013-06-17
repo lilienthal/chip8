@@ -34,6 +34,7 @@ Demo
 	cpu := C8CPU new.
 	cpu ram loadROM: '/home/falco/c8games/MAZE2'.
 	cpu display: C8Display new.
+    cpu keyboard buildKeypad openInWorld.
 	cpu start.
 
 	cpu stop.
