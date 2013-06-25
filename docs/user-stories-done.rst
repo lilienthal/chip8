@@ -277,9 +277,14 @@ Demo
 
 .. code-block:: smalltalk
     
+    "On Transcript - small ROM"
     Transcript clear.
     d := C8SymbolicDisassembler new.
     d runOn: '/home/falco/c8games/MAZE'
+
+    "To file - for larger ROMs"
+    d := C8SymbolicDisassembler newOnFileNamed: 'invaders.txt'.
+    d runOn: '/home/falco/c8games/INVADERS'.
 
 ------------------
 
