@@ -17,10 +17,10 @@ Demo
     "Register creation"
     register := C8Register new.
     register bits: 8.
-
+    
     "accessing it's value"
     register bits. "=> 8"
-
+    
     "values >255 are cropped to fit 8 bits"
     register bits: 1337.
     register bits. "=> 57"
@@ -148,6 +148,17 @@ Story VII : CPU execution cycle
 **Motivation:** Allowing sequential execution of multiple instructions.
 
 **Description:** The cpu fetches the next instruction and executes it.
+
+Demo
+....
+
+.. code-block:: smalltalk
+
+    chip := C8Chip new.
+    chip cpu
+        pc;
+        doCycle;
+        pc.
 
 ------------------
 

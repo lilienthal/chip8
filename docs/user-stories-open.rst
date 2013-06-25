@@ -13,11 +13,3 @@ Story XIII: Space Invaders Demo
 **Motivation:** Get the next larger ROM running.
 
 **Description:** Load and enjoy space invaders.
-
-Demo
-....
-
-
-
-------------------
-
