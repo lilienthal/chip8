@@ -17,10 +17,10 @@ Demo
     "Register creation"
     register := C8Register new.
     register bits: 8.
-    
+
     "accessing it's value"
     register bits. "=> 8"
-    
+
     "values >255 are cropped to fit 8 bits"
     register bits: 1337.
     register bits. "=> 57"
@@ -36,12 +36,7 @@ Demo
 ....
 
 .. code-block:: smalltalk 
-
-    "
-    create a new cpu,
-    set register 7 to 111
-    and add 123 to id
-    "
+    
     cpu := C8CPU new.
     cpu ldVx: 7 byte: 111.
     cpu addVx: 7 byte: 123.
@@ -54,14 +49,16 @@ Story III : CPU opcode add Value to Register
 
 .. code-block:: smalltalk
     
+    cpu := C8CPU new.
+
     "load input A in register 1"
-    cpu execute: 16rF10A
+    cpu execute: 16r610A.
     
     "load input B in register 2"
-    cpu execute: 16rF20A
+    cpu execute: 16r620B.
 
     "add B to A (register 2 to 1)"
-    cpu execute: 16r8124
+    cpu execute: 16r8124; inspect
 
 ------------------
 
@@ -79,20 +76,20 @@ Demo
 .. code-block:: smalltalk
 
     "Show the last key on the transcript until a character other than
-    0-9, A-F is pressed"
+    0 is pressed"
     Transcript clear.
     kb := C8Keyboard new.
     [
-        [ kb lastKey = -1 ] whileFalse:
+        [ kb lastKey = 0 ] whileFalse:
             [Transcript show: 'Last Key: '; show: (kb lastKey ); cr.
             (Delay forSeconds: 3) wait. ]
     ] fork.
 
 
     "Second example - ldK opcode"
-    [cpu := C8CPU new.
-    cpu ldK: 0.
-    Transcript show: (cpu register: 0) bits; cr.] fork.
+    [ chip := C8Chip new.
+    chip cpu ldK: 0.
+    Transcript show: (chip cpu register: 0) bits; cr.] fork.
 
 ------------------
 
@@ -135,9 +132,9 @@ Demo
 
 .. code-block:: smalltalk
 
-    mem := C8Memory new.
-    mem loadROM: '/home/falco/c8games/BLINKY'.
-    mem memory inspect.
+    chip := C8Chip new.
+    chip loadROM: '/home/falco/c8games/BLINKY'.
+    chip ram inspect.
 
 ------------------
 
@@ -176,7 +173,7 @@ Example:
 
     "HPI Logo: 2 sprite version"
     g := C8Graphics new.
-    C8Display newFor: g.
+    (C8Display newFor: g) openInWorld; scaleFactor: 10.
     top := #(
     #[16r00 16r00 16r00 16r00 16r7F 16r7F 16r7F 16r7F 16r7F 16r7F 16r7F 16r7F 16r7F 16r7F]
     #[16rFF 16rFF 16rFF 16rFF 16r00 16r00 16r00 16r09 16r09 16r0F 16r09 16r09 16r00 16r00]
@@ -199,7 +196,7 @@ Example:
 
     "C8 Logo"
     g := C8Graphics new.
-    C8Display newFor: g.
+    (C8Display newFor: g) openInWorld; scaleFactor: 10.
     g draw: #[2r01100110 2r10001001 2r10001001 2r10000110 2r10001001 2r10001001 2r01100110] to: 28@12.
 
 ------------------
@@ -235,11 +232,12 @@ Demo
 
 .. code-block:: smalltalk
 
-    cpu := C8CPU new.
-    cpu call: C8Chip startAddress + 20.
-    cpu pc.
-    cpu ret.
-    cpu pc.
+    chip := C8Chip new.
+    chip cpu
+    call: C8Chip startAddress + 20;
+    pc;
+    ret;
+    pc.
 
 ------------------
 
@@ -258,11 +256,10 @@ Demo
 
 .. code-block:: smalltalk
 
-    cpu := C8CPU new.
-    cpu ram loadROM: '/home/falco/c8games/MAZE2'.
-    cpu display: C8Display new.
-    cpu keyboard buildKeypad openInWorld.
-    cpu start.
+    chip := C8Chip new.
+    C8Window newWithChip: chip.
+    chip loadROM: '/home/falco/c8games/MAZE'.
+    chip start.
 
     cpu stop.
 
@@ -304,5 +301,4 @@ Demo
 
 .. code-block:: smalltalk
 
-    cpu := C8CPU new.
-    cpu keyboard buildKeypad openInWorld.
+    chip := C8Window new.
