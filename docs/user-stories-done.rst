@@ -256,12 +256,9 @@ Demo
 
 .. code-block:: smalltalk
 
-    chip := C8Chip new.
-    C8Window newWithChip: chip.
-    chip loadROM: '/home/falco/c8games/MAZE'.
-    chip start.
-
-    cpu stop.
+    c := C8Window new.
+    c chip loadROM: '/home/falco/c8games/MAZE2'.
+    c chip start.
 
 ------------------
 
