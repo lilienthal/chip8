@@ -17,6 +17,7 @@ Contents:
    thoughts.rst
    consultation.rst
    rom_editor.rst
+   readme.rst
 
 
 Indices and tables
